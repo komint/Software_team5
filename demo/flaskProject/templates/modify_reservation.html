@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+
+{% block content %}
+        <!-- 예약 수정 폼 -->
+        <section id="reservation-modify">
+            <h2>예약 수정</h2>
+            <form id="reservationModifyForm">
+                <label for="modifyReservationId">예약 ID:</label>
+                <input type="number" id="modifyReservationId" name="modifyReservationId" required>
+
+                <label for="modifyReservationDate">새 예약 날짜:</label>
+                <input type="date" id="modifyReservationDate" name="modifyReservationDate" required>
+
+                <label for="modifyReservationTime">새 예약 시간:</label>
+                <input type="time" id="modifyReservationTime" name="modifyReservationTime" required>
+
+                <label for="modifyNumberOfGuests">새 인원 수:</label>
+                <input type="number" id="modifyNumberOfGuests" name="modifyNumberOfGuests" required min="1">
+
+                <button type="submit">예약 수정</button>
+            </form>
+        </section>
+
+
+{% endblock %}

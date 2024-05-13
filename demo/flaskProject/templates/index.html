@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>함바 나라</title>
+       <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+    <header>
+        <h1>한식뷔페 관리 시스템</h1>
+        <nav>
+            <ul>
+                <li><a href="view_menu">메뉴 조회</a></li>
+                <li><a href="manage_menus">메뉴 관리</a></li>
+                <li><a href="reservation_lookup">예약 조회</a></li>
+                <li><a href="reserve">예약하기</a></li>
+                <li><a href="modify_reservation">예약 수정</a></li>
+                <li><a href="cancel_reservation">예약 취소</a></li>
+                <li><a href="inquiry">고객 문의</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+    <footer>
+        <p>© 2024 한식뷔페 관리 시스템</p>
+    </footer>
+</body>
+</html>

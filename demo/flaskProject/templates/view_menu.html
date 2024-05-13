@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+        <!-- 메뉴 조회 섹션 -->
+        <section id="menu-view">
+    <h2>메뉴 조회</h2>
+    <div id="menuList">
+        <!-- 메뉴 목록이 여기에 표시됩니다 -->
+
+         <ul>
+        {% for menu in menus %}
+        <li>
+            {{ menu.name }} - {{ menu.description }}
+        </li>
+        {% endfor %}
+    </ul>
+    </div>
+</section>
+
+{% endblock %}

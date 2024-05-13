@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+
+{% block content %}
+        <main>
+        <!-- 메뉴 등록 폼 -->
+        <section id="menu-registration">
+    <h2>메뉴 등록(관리자)</h2>
+    <form method="post">
+        <input type="hidden" name="id" value="{{ menu.id if menu else '' }}">
+        <label>
+            메뉴 이름:
+            <input type="text" name="name" value="{{ menu.name if menu else '' }}" required>
+        </label>
+        <label>
+            메뉴 설명:
+            <textarea name="description" required>{{ menu.description if menu else '' }}</textarea>
+        <button type="submit">저장</button>
+        </label>
+
+        </form>
+    </section>
+
+    </form>
+
+        <!-- 메뉴 수정 섹션 -->
+        <section id="menu-modification">
+            <h2>메뉴 수정(관리자)</h2>
+  <ul>
+        {% for menu in menus %}
+        <li>
+            {{ menu.name }} - {{ menu.description }}
+            <a href="{{ url_for('edit_menu', menu_id=menu.id) }}">수정</a>
+            <form method="post" action="{{ url_for('delete_menu', menu_id=menu.id) }}" style="display: inline;">
+                <button type="submit">삭제</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+        </section>
+{% endblock %}
