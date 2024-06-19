@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+        <!-- 고객 문의 -->
+        <section id="customer-inquiry">
+            <h2>고객 문의</h2>
+            <form>
+                <label for="inquiryType">문의 유형:</label>
+                <select id="inquiryType" name="inquiryType">
+                    <option value="service">서비스</option>
+                    <option value="food">음식</option>
+                </select>
+                <textarea id="inquiryText" name="inquiryText" rows="4" placeholder="여기에 문의사항을 입력하세요."></textarea>
+                <button type="submit">문의하기</button>
+            </form>
+        </section>
+    </main>
+
+{% endblock %}

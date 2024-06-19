@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <!-- 예약 취소 폼 -->
+    <section id="reservation-cancel">
+        <h2>예약 취소</h2>
+        <form method="post" action="{{ url_for('cancel_reservation_action') }}">
+            <label for="cancelReservationId">예약 번호:</label>
+            <input type="number" id="cancelReservationId" name="cancelReservationId" required>
+
+            <button type="submit">취소하기</button>
+        </form>
+
+        {% if reservation_cancelled %}
+            <p>예약이 성공적으로 취소되었습니다!</p>
+        {% elif reservation_not_found %}
+            <p>예약 정보를 찾을 수 없습니다.</p>
+        {% endif %}
+    </section>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <!-- 예약 수정 폼 -->
+    <section id="reservation-modify">
+        <h2>예약 수정</h2>
+        <form method="post" action="{{ url_for('modify_reservation') }}">
+            <label for="modifyReservationId">예약 번호:</label>
+            <input type="number" id="modifyReservationId" name="modifyReservationId" required>
+
+            <label for="modifyReservationDate">새 예약 날짜:</label>
+            <input type="date" id="modifyReservationDate" name="modifyReservationDate" required>
+
+            <label for="modifyReservationTime">새 예약 시간:</label>
+            <input type="time" id="modifyReservationTime" name="modifyReservationTime" required>
+
+            <label for="modifyNumberOfGuests">새 인원 수:</label>
+            <input type="number" id="modifyNumberOfGuests" name="modifyNumberOfGuests" required min="1">
+
+            <button type="submit">예약 수정</button>
+        </form>
+
+        {% if reservation_modified %}
+            <p>예약이 성공적으로 수정되었습니다!</p>
+        {% elif reservation_not_found %}
+            <p>예약 정보를 찾을 수 없습니다.</p>
+        {% endif %}
+    </section>
+{% endblock %}

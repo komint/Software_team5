@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+
+{% block content %}
+  <!-- 예약 조회 폼 -->
+  <section id="reservation-lookup">
+    <h2>예약 조회</h2>
+    <form method="post" action="{{ url_for('reservation_lookup') }}">
+      <label for="reservation_id">예약 번호:</label>
+      <input type="number" id="reservation_id" name="reservation_id" required>
+      <button type="submit">조회</button>
+    </form>
+
+    {% if reservation %}
+      <h3>예약 정보</h3>
+      <ul>
+        <li>예약 번호: {{ reservation.id }}</li>
+        <li>고객 이름: {{ reservation.customer_name }}</li>
+        <li>예약 날짜: {{ reservation.reservation_date }}</li>
+        <li>예약 시간: {{ reservation.reservation_time }}</li>
+        <li>인원 수: {{ reservation.number_of_guests }}</li>
+      </ul>
+    {% elif reservation_not_found %}
+      <p>예약 정보가 확인되지 않습니다.</p>
+    {% endif %}
+  </section>
+{% endblock %}
